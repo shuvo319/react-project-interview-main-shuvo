@@ -1,6 +1,16 @@
-
+import React, {useState, useEffect} from 'react';
 
 const Courses = () => {
+
+    const [course, setCourse] = useState([]);
+
+    useEffect(() => {
+      fetch('https://itder.com/api/get-course-list')
+      .then(response => response.json())
+      .then(data => setCourse(data))
+      .catch(error => console.log(error))
+    },[])
+    console.log(course)
     return (
         <div className="m-mt_16px">
           
